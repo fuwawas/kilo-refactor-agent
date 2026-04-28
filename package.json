@@ -1,0 +1,41 @@
+{
+  "name": "kilo-refactor-agent",
+  "version": "1.2.0",
+  "description": "Automated codebase refactoring powered by KiloCode + Claude",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "kilo-refactor": "./bin/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "refactor": "node ./bin/cli.js",
+    "refactor:dry": "node ./bin/cli.js --dry-run",
+    "lint": "eslint src/",
+    "test": "vitest run"
+  },
+  "keywords": [
+    "kilocode",
+    "refactoring",
+    "ai-agent",
+    "code-quality",
+    "claude",
+    "automation"
+  ],
+  "author": "3497650263",
+  "license": "MIT",
+  "dependencies": {
+    "kilo-sdk": "^2.4.0",
+    "typescript": "^5.4.0",
+    "ts-morph": "^22.0.0",
+    "glob": "^10.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "eslint": "^8.56.0",
+    "vitest": "^1.2.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

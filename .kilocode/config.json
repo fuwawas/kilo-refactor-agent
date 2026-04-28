@@ -1,0 +1,42 @@
+{
+  "$schema": "https://kilocode.dev/schema/config.json",
+  "version": "2.4",
+  "project": "kilo-refactor-agent",
+  "defaultModel": "claude-sonnet-4-20250514",
+  "fallbackModel": "claude-haiku-4-20250514",
+  "agents": {
+    "refactor": {
+      "role": "code-refactoring-specialist",
+      "capabilities": [
+        "ast-analysis",
+        "dependency-graph",
+        "code-transformation",
+        "test-validation",
+        "pr-generation"
+      ]
+    }
+  },
+  "rules": {
+    "maxConcurrentAgents": 3,
+    "tokenBudget": {
+      "daily": 25000000,
+      "perTask": 2000000
+    },
+    "safety": {
+      "requireTestPass": true,
+      "rollbackOnFailure": true,
+      "maxFilesPerPR": 25
+    }
+  },
+  "integrations": {
+    "github": {
+      "enabled": true,
+      "autoCreatePR": true,
+      "branchPrefix": "refactor/"
+    },
+    "ci": {
+      "runTestsBeforePR": true,
+      "lintCheck": true
+    }
+  }
+}
